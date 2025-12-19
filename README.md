@@ -1,7 +1,7 @@
- ### Implementación Práctica
-### Crea un sistema completo de autenticación:
+# Implementación Práctica
+## Crea un sistema completo de autenticación:
 
-## Configurar Context de Autenticación
+### Configurar Context de Autenticación
 
 - Crear AuthContext con useReducer
 - Implementar acciones de login, logout y refresh
@@ -22,4 +22,4 @@
 - Manejar expiración de sesiones
 - Sincronizar estado entre pestañas
 
-### Implementa un sistema de "recordar sesión" que persista la autenticación entre sesiones del navegador.
+## Implementa un sistema de "recordar sesión" que persista la autenticación entre sesiones del navegador.
