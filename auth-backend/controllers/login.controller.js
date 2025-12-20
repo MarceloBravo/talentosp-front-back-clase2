@@ -18,6 +18,21 @@ class LoginController{
         }
     }
 
+    async logout(req, res, next){
+        try{
+        const {refreshToken} = req.body;
+        const result = await this.loginService.logout(refreshToken);
+        res.json({data: result});
+        }catch(error){
+            console.log(error);
+            next(error);
+        }
+    }
+
+    
+
+
+
     async refreshToken(req, res, next){
         try {
             const {refreshToken} = req.body;

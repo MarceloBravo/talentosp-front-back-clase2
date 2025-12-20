@@ -33,6 +33,23 @@ class UserService{
     }
     
 
+    async logout(refreshToken){
+        const verify = jwt.verify(refreshToken, process.env.REFRESHTOKEN_SECRETS);
+
+        if(!verify.user.id){
+            throw 'El usuario no pudo ser reautentificado.';
+        }
+        
+        const userVerify = verify.user;
+        const result = await this.usersModel.logout(userVerify.id);   //Borrando el refresh token de la base de datos
+        if(result && result.affectedRows === 0){
+            return 'No se pudo cerrar la sesión.';
+        }else{
+            return 'Sesión cerrada exitosamente.';
+        }
+    }
+    
+
     /**
      * Se encarga de autenticar a través de token
      * @param {string} refreshToken refresh token utolizado para busqueda en la base ed datos

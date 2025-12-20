@@ -59,6 +59,11 @@ class UsersModel{
         const result = await cnn.query('UPDATE users SET refresh_token = ? WHERE id = ?', [refreshToken, id]);
         return result[0];
     }
+
+    async logout(id){
+        const result = await cnn.query('UPDATE users SET refresh_token = NULL WHERE id = ?', [id]);
+        return result[0];
+    }
 }
 
 module.exports = UsersModel;
