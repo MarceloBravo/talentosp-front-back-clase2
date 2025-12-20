@@ -1,1 +1,22 @@
 auth-backend/node_modules
+auth-frontend/node_modules
+
+./auth-frontend/.pnp
+./auth-frontend/pnp.js
+
+# testing
+auth-frontend//coverage
+
+# production
+auth-frontend//build
+
+# misc
+./auth-frontend/DS_Store
+./auth-frontend/env.local
+./auth-frontend/env.development.local
+./auth-frontend/env.test.local
+./auth-frontend/env.production.local
+
+/auth-frontend/npm-debug.log*
+/auth-frontend/yarn-debug.log*
+/auth-frontend/yarn-error.log*

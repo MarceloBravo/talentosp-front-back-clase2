@@ -19,6 +19,6 @@ CREATE TABLE IF NOT EXISTS users(
 );
 
 INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('pedro', 'Pedro', 'Perez', 'admin','pedro@ejmplo.cl','$2b$10$sGP1LnzggHxN26WeqX7rpeYzj3EYoIk8dHyveMIdqrr3kCc2mYBAO');
-INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('juana', 'Juana', 'Perez', 'administrativo','juana@ejemplo.cl','$2b$10$sGP1LnzggHxN26WeqX7rpeYzj3EYoIk8dHyveMIdqrr3kCc2mYBAO');
+INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('juana', 'Juana', 'Perez', 'supervisor','juana@ejemplo.cl','$2b$10$sGP1LnzggHxN26WeqX7rpeYzj3EYoIk8dHyveMIdqrr3kCc2mYBAO');
 INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('Marcelo', 'Marcelo', 'Bravo', 'invitado','marcelo@ejemplo.cl','$2b$10$eYnp1aIuAyzg1iOyb1lav.pV6uUXnWxxEVrTRq4PDjsLxfRCDehbC');
 

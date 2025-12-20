@@ -5,9 +5,9 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Backend",
+            "runtimeExecutable": "nodemon",
             "program": "${workspaceFolder}/auth-backend/app.js",
             "cwd": "${workspaceFolder}/auth-backend",
-            "runtimeExecutable": "node",
             "console": "integratedTerminal",
             "skipFiles": [
                 "<node_internals>/**"
@@ -17,7 +17,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Frontend",
-            "url": "http://localhost:3000",
+            "url": "http://localhost:3001",
             "webRoot": "${workspaceFolder}/auth-frontend/src"
         }
     ],
