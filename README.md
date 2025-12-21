@@ -4,19 +4,19 @@
 ### Configurar Context de Autenticación
 
 - Crear AuthContext con useReducer
-- Implementar acciones de login, logout y refresh
-- Agregar estados de carga y error
-- Implementar Login/Registro
+- [ok] Implementar acciones de login, logout y refresh
+- [ok] Agregar estados de carga y error
+- [ok] Implementar Login/Registro
 
 - Crear formularios con validación
-- Conectar con API de autenticación
-- Manejar errores y estados de carga
-- Proteger Rutas de la Aplicación
+- [ok] Conectar con API de autenticación
+- [ok] Manejar errores y estados de carga
+- [ok] Proteger Rutas de la Aplicación
 
 - [ok] Configurar React Router con ProtectedRoute
-- Implementar redirecciones automáticas
-- Crear páginas de login y acceso denegado
-- Gestionar Renovación de Tokens
+- [ok] Implementar redirecciones automáticas
+- [ok] Crear páginas de login y acceso denegado
+- [ok] Gestionar Renovación de Tokens
 
 ## Implementar interceptores para refresh automático
 - Manejar expiración de sesiones
