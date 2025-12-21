@@ -13,10 +13,10 @@ function authenticateToken(req, res, next) {
 
     jwt.verify(token, process.env.TOKEN_SECRETS, (err, decoded) => {
         if (err) {
-            return res.status(403).json({
-                status: 'error',
-                message: 'Token inválido o expirado.'
-            });
+            if (err.name === "TokenExpiredError") {
+                return res.status(401).json({ error: "Token expirado" });
+            }
+            return res.status(401).json({ error: "Token inválido" });
         }
 
         req.user = decoded.user; // Agregar el usuario decodificado a req

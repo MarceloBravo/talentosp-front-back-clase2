@@ -60,7 +60,7 @@ export const RegisterHook = () => {
                 rol: 'supervisor'
             });
             toast.success(response.mensaje);
-            const timer = setTimeout(() => {
+            setTimeout(() => {
                 navigate('/login');
             }, 5000);
         }catch(error){

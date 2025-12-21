@@ -14,7 +14,7 @@ export const Navigation = () => {
 
     <Routes>
         <Route path="/" element={<ProtectedRoutes requiredRole="admin"> <UsersPage /> </ProtectedRoutes> } />
-        <Route path="/users" element={<ProtectedRoutes> <HomePage /> </ProtectedRoutes> } />
+        <Route path="/home" element={<ProtectedRoutes> <HomePage /> </ProtectedRoutes> } />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/unauthorized" element={<Page403 />} />

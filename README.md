@@ -13,7 +13,7 @@
 - Manejar errores y estados de carga
 - Proteger Rutas de la Aplicación
 
-- Configurar React Router con ProtectedRoute
+- [ok] Configurar React Router con ProtectedRoute
 - Implementar redirecciones automáticas
 - Crear páginas de login y acceso denegado
 - Gestionar Renovación de Tokens

@@ -1,19 +1,19 @@
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import { useContext } from "react";
+import AuthContext from "../contexts/AuthContext";
 
 export const ProtectedRoutes = ({ children, requiredRole }) => {
-    const { isAuthenticated, user, isLoading } = useAuth();
+    const { isLoading, error, userSession } = useContext(AuthContext);
     const location = useLocation();
 
-    if (isLoading) {
-        return <div className="loading">Verificando autenticación...</div>;
+    if(isLoading){
+        return <div>Cargando...</div>
     }
 
-    if (!isAuthenticated) {
+    if (!userSession?.user || error) {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
-
-    if (requiredRole && user.role !== requiredRole) {
+    if (userSession.user.rol !== requiredRole && requiredRole) {
         return <Navigate to="/unauthorized" replace />;
     }
 

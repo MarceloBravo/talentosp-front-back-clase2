@@ -1,10 +1,19 @@
 import axios from "axios";
+import { saveRefreshToken, getRefreshTokenFromCookie } from "../utils/refreshToken";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 const instance = axios.create({
   baseURL: API_URL,
 });
+
+// Variable para almacenar la función de actualización del store/context
+let store;
+
+export const injectStore = (_store) => {
+  store = _store;
+};
+
 
 instance.interceptors.request.use(
   (config) => {
@@ -24,9 +33,37 @@ instance.interceptors.response.use(
     return response;
   },
   async (error) => {
-    const originalRequest = error.config;
-    if (error.response.status === 401 && !originalRequest._retry) {
-      console.log('Unauthorized, redirecting...');
+     const originalRequest = error.config;
+
+    // Si el access token expiró
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      try {
+        const refreshToken = getRefreshTokenFromCookie();
+        // Pedir nuevo access token usando refresh token (cookie segura)
+        const { data } = await instance.post(`/auth/refresh`,
+          {
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ refreshToken })
+          }
+        );
+        saveRefreshToken(data.refreshToken);
+        if (store && store.setUserSession) {
+          console.log("Actualizando sesión en memoria con nuevo token...");
+          store.setUserSession(prev => ({
+            ...prev,
+            accessToken: data.accessToken,
+          }));
+        }
+
+        // Reintentar la request original con el nuevo token
+        originalRequest.headers.Authorization = `Bearer ${data.accessToken}`;
+        return instance(originalRequest);
+      } catch (err) {
+        await store.logout();
+        // Si falla el refresh → redirigir a login
+        window.location.href = "/login";
+      }
     }
     return Promise.reject(error);
   }

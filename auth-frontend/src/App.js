@@ -1,19 +1,16 @@
-import { createContext, useState } from "react";
 import { Navigation } from "./routes/Navigation";
+import { AuthProvider } from "./contexts/AuthContext";
 
 import './App.css';
 
-const userContext = createContext(null);
-
 function App() {
-  const [ userSession, setUserSession ] = useState(null);
 
   return (
-    <userContext.Provider value={{ userSession, setUserSession }}>
+    <AuthProvider>
         <div className="App">
           <Navigation/>
         </div>
-    </userContext.Provider>
+    </AuthProvider>
   );
 }
 
