@@ -17,7 +17,7 @@ export const injectStore = (_store) => {
 
 instance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("authToken");
+    const token = store.userSession.accessToken;
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -47,17 +47,17 @@ instance.interceptors.response.use(
             body: JSON.stringify({ refreshToken })
           }
         );
-        saveRefreshToken(data.refreshToken);
+        saveRefreshToken(data.refresh_token);
         if (store && store.setUserSession) {
           console.log("Actualizando sesión en memoria con nuevo token...");
           store.setUserSession(prev => ({
             ...prev,
-            accessToken: data.accessToken,
+            accessToken: data.access_token,
           }));
         }
 
         // Reintentar la request original con el nuevo token
-        originalRequest.headers.Authorization = `Bearer ${data.accessToken}`;
+        originalRequest.headers.Authorization = `Bearer ${data.access_token}`;
         return instance(originalRequest);
       } catch (err) {
         await store.logout();

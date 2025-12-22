@@ -1,14 +1,18 @@
-import { toast } from 'react-toastify';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../contexts/AuthContext';
 
-export const LoginHook = () => {
-  const [rememberMe, setRememberMe] = useState(false);
-  const [ formLogin, setFormLogin ] = useState({email: '', password: ''});
+export const useLoginPage = () => {
+  const [ formLogin, setFormLogin ] = useState({email: '', password: '', rememberMe: false});
   const [ errorsLogin, setErrorsLogin ] = useState({email: '', password: ''});
-  const { login, isLoading, error } = useContext(AuthContext);
+  const { login, isLoading, error, userSession } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userSession.isLoggedIn) {
+      navigate('/');
+    }
+  }, [userSession.isLoggedIn, navigate]);
 
   const handleInputChange = (e) => {
     if(e.target.value.trim().length === 0){
@@ -26,13 +30,16 @@ export const LoginHook = () => {
         if(error){
           throw new Error(error);
         }
-        navigate('/home');      
+        navigate('/');      
     }catch(error){
-      toast.error(error.message);
+      alert(error.message);
       console.log(error);
     }
   };
 
+  const handleRememberMeClick = () => {
+    setFormLogin({...formLogin, rememberMe: !formLogin.rememberMe});
+  }
   
 
   return {
@@ -40,9 +47,9 @@ export const LoginHook = () => {
       errorsLogin,
       isLoading,
       error,
-      rememberMe,
-      setRememberMe,
+      userSession,
       handleInputChange,
-      handleSubmit
+      handleSubmit,
+      handleRememberMeClick
   }
 }

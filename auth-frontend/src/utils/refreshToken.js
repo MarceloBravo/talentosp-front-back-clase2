@@ -30,7 +30,7 @@ const saveRefreshToken = (refreshToken) => {
 
 const getRefreshTokenFromCookie = () => {
     const value = `; ${document.cookie}`;
-    const parts = value.split(`; refresh=`);
+    const parts = value.split(`; refresh_token=`);
     if (parts.length === 2) return parts.pop().split(";").shift();
 }
 

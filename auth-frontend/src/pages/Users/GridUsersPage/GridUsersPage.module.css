@@ -1,0 +1,102 @@
+.gridUserPage{
+    padding: 0px 3em;
+}
+
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.searchBar {
+    display: flex;
+}
+
+.searchBar input {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.searchBar input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+.btnNuevo, .btnBuscar, .btnEditar, .btnEliminar {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btnNuevo {
+    background-color: #28a745;
+    color: white;
+}
+
+.btnNuevo:hover {
+    background-color: #218838;
+}
+
+.btnBuscar {
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 4px 4px 0;
+}
+
+.btnBuscar:hover {
+    background-color: #0056b3;
+}
+
+.btnBuscar:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.btnEditar, .btnEliminar {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    margin: 0 0.25rem;
+}
+
+.gridContainer {
+    overflow-x: auto;
+}
+
+.gridTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.gridHead th {
+    background-color: #e9ecef;
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.gridBody td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.gridBody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.gridBody tr:hover {
+    background-color: #e9ecef;
+}

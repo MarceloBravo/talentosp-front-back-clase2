@@ -1,9 +1,8 @@
 import { useHttp } from '../../hooks/useHttp';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
-export const RegisterHook = () => {
+export const useRegisterPage = () => {
     const { loading, request } = useHttp();
     const [formData, setFormData] = useState({
         username: '',
@@ -59,12 +58,12 @@ export const RegisterHook = () => {
                 confirmPassword: '',
                 rol: 'supervisor'
             });
-            toast.success(response.mensaje);
+            alert(response.mensaje);
             setTimeout(() => {
                 navigate('/login');
             }, 5000);
         }catch(error){
-            toast.error(error.message);    
+            alert(error.message);    
         }
     };
 

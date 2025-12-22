@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import { SpinnerComponent } from '../../componentes/Spinner/SpinnerComponent';
-import { LoginHook } from './LoginHook';
+import { useLoginPage } from './useLoginPage';
 import styles from './LoginPage.module.css';
 
 export const LoginPage = () => { 
@@ -9,17 +8,16 @@ export const LoginPage = () => {
       formLogin,
       errorsLogin,
       isLoading,
-      rememberMe,
-      setRememberMe,
       handleInputChange,
-      handleSubmit
-  } = LoginHook();
-  
+      handleSubmit,
+      handleRememberMeClick
+  } = useLoginPage();
+
+  if(isLoading)return <SpinnerComponent/>;
 
   return (
     <>
       {isLoading && <SpinnerComponent/>}
-      <ToastContainer/>
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <h2 className={styles.title}>Iniciar Sesión</h2>
@@ -53,7 +51,7 @@ export const LoginPage = () => {
           </div>
           <button type="submit" className={styles.button}>Iniciar Sesión</button>
           <p className="rememberMe">
-            <input type="checkbox" id="rememberMe" checked={rememberMe} onChange={() => setRememberMe(!rememberMe)}/>
+            <input type="checkbox" id="rememberMe" bname="rememberMe" checked={formLogin.rememberMe} onChange={handleRememberMeClick}/>
             <label htmlFor="rememberMe">Recordarme</label>
           </p>
           <p className={styles.linkText}>

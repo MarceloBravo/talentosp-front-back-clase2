@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SpinnerComponent } from '../../componentes/Spinner/SpinnerComponent';
-import { ToastContainer } from 'react-toastify';
-import { RegisterHook } from './RegisterHook';
+import { useRegisterPage } from './useRegisterPage';
 import styles from './RegisterPage.module.css';
 
 export const RegisterPage = () => {
@@ -11,13 +10,12 @@ export const RegisterPage = () => {
         formErrors,
         handleChange,
         handleSubmit
-    } = RegisterHook();
+    } = useRegisterPage();
     
 
     return (
         <>
             {loading && <div className={styles.loading}><SpinnerComponent/></div>}
-            <ToastContainer/>
             <div className={styles.container}>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <h2 className={styles.title}>Registro</h2>
