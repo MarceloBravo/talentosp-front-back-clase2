@@ -63,14 +63,14 @@ class UserService{
         }
         
         const userVerify = verify.user;
+        
         const user = await this.usersModel.refreshToken(userVerify.id, refreshToken);
         if(!user){
             throw 'Usuario no encontrado o inexistente. Logueate nuevamente...';
         }
         
         const {access_token, refresh_token} = this.getTokens(user);
-        
-        await this.usersModel.updateRefreshToken(userVerify.id, refreshToken);    //Actualiza el refreshtoken en la base de datos
+        await this.usersModel.updateRefreshToken(userVerify.id, refresh_token);    //Actualiza el refreshtoken en la base de datos
         
         return {access_token, refresh_token};
     }

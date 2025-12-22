@@ -6,8 +6,18 @@ class UsersModel{
         this.db = cnn;
     }
 
-    async getUsersAll(){
-        const result = await cnn.query('SELECT id, username, nombre, apellido, rol, email, created_at FROM users');
+    async getUsersAll(search = null){
+        let query = 'SELECT id, username, nombre, apellido, rol, email, created_at FROM users';
+        const params = [];
+        const searchableFields = ['username', 'nombre', 'apellido', 'rol', 'email'];
+
+        if (search && search.trim().length > 0) {
+            const conditions = searchableFields.map(field => `${field} LIKE ?`);
+            query += ' WHERE ' + conditions.join(' OR ');
+            params.push(...Array(searchableFields.length).fill(`%${search}%`));
+        }
+
+        const result = await cnn.query(query, params);
         return result[0];
     }
 

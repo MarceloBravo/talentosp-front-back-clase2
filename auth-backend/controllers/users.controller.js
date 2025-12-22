@@ -7,7 +7,8 @@ class UserController{
 
     async getAllUsers(req, res, next){
         try {
-            const users = await this.userModel.getUsersAll();
+            const search = req.query.search; // Extraer el parámetro de búsqueda
+            const users = await this.userModel.getUsersAll(search);
             res.json({data: users});
         }catch(error){
             console.log(error);
