@@ -11,7 +11,7 @@ export const useRegisterPage = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        rol: 'supervisor'
+        rol: ''
     });
     const [ formErrors, setFormErrors ] = useState([]);
     const navigate = useNavigate();
@@ -56,7 +56,7 @@ export const useRegisterPage = () => {
                 email: '',
                 password: '',
                 confirmPassword: '',
-                rol: 'supervisor'
+                rol: ''
             });
             alert(response.mensaje);
             setTimeout(() => {

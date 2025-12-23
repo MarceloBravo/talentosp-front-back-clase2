@@ -28,6 +28,11 @@
     text-align: left;
   }
   
+  .fieldContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
   .inputGroup label {
     display: block;
     margin-bottom: 0.5rem;
@@ -42,6 +47,13 @@
     box-sizing: border-box;
   }
   
+  .inputField {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+}
+
 .button {
   width: 100%;
   padding: 0.75rem;
