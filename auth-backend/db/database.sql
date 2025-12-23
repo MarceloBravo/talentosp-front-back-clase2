@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS users(
     UNIQUE(username)
 );
 
-INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('pedro', 'Pedro', 'Perez', 'admin','pedro@ejmplo.cl','$2b$10$sGP1LnzggHxN26WeqX7rpeYzj3EYoIk8dHyveMIdqrr3kCc2mYBAO');
-INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('juana', 'Juana', 'Perez', 'supervisor','juana@ejemplo.cl','$2b$10$sGP1LnzggHxN26WeqX7rpeYzj3EYoIk8dHyveMIdqrr3kCc2mYBAO');
-INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('Marcelo', 'Marcelo', 'Bravo', 'invitado','marcelo@ejemplo.cl','$2b$10$eYnp1aIuAyzg1iOyb1lav.pV6uUXnWxxEVrTRq4PDjsLxfRCDehbC');
+INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('pedro', 'Pedro', 'Perez', 'admin','pedro@ejmplo.cl','$2b$10$STEOmj1xT6IXiLgxSQNMgud0f4Z2UouCd2AD8TSLprNoIzm3kqUKO');  --pwd: 321321
+INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('juana', 'Juana', 'Perez', 'supervisor','juana@ejemplo.cl','$2b$10$UabzEAgiIVL3PlvOMRLZAexkWQgzDXYcbZf2K.g8H1X9kMtc.lRZ2');  -- pwd: 123123
+INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('Diego123', 'Diego', 'Bravo', 'invitado','diego@ejemplo.cl','$2b$10$I3JJGREoL0SOtxZBRdmxWuYSlsQftIY4N6NYJ8Mkd7ds\bbYfsNky');  -- pwd: 123456
 
