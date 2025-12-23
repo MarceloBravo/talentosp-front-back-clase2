@@ -21,4 +21,3 @@ CREATE TABLE IF NOT EXISTS users(
 INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('pedro', 'Pedro', 'Perez', 'admin','pedro@ejmplo.cl','$2b$10$STEOmj1xT6IXiLgxSQNMgud0f4Z2UouCd2AD8TSLprNoIzm3kqUKO');  -- pwd: 321321
 INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('juana', 'Juana', 'Perez', 'supervisor','juana@ejemplo.cl','$2b$10$UabzEAgiIVL3PlvOMRLZAexkWQgzDXYcbZf2K.g8H1X9kMtc.lRZ2');  -- pwd: 123123
 INSERT INTO users (username, nombre, apellido, rol, email, password) VALUES ('Diego123', 'Diego', 'Bravo', 'invitado','diego@ejemplo.cl','$2b$10$I3JJGREoL0SOtxZBRdmxWuYSlsQftIY4N6NYJ8Mkd7ds\bbYfsNky');  -- pwd: 123456
-
